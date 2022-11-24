@@ -34,7 +34,7 @@ public class Class {
         System.out.println("Viewing all the students in the class...");
 
         for (Student student: students) {
-            System.out.println("Name: " + student.name + ", grade: " + student.grade);
+            System.out.println(student);
         }
 
     }
@@ -47,13 +47,11 @@ public class Class {
 
         for (Student student: students) {
             if (student.name.equals(name)) {
-                System.out.println("Name: " + student.name + ", grade: " + student.grade);
-            } return;
-
+                System.out.println(student);
+                return;
+            }
         }
-
         System.out.println("Student not found!");
-
     }
 
     public void removeStudent() {
@@ -64,14 +62,15 @@ public class Class {
 
         for (Student student: students){
             if (student.name.equals(name)) {
-                int index = students.indexOf(student);
 
-                students.remove(index);
+                students.remove(student);
 
                 System.out.println(student.name +  " was removed successfully.");
+
+                return;
             }
         }
-
+        System.out.println("Student was not found.");
     }
 
     public void findGreaterThan5() {
@@ -79,7 +78,7 @@ public class Class {
 
         for (Student student: students) {
             if (student.grade > 5) {
-                System.out.println("Student's name: " + student.name + ", grade: " + student.grade);
+                System.out.println(student);
             }
         }
     }
@@ -89,9 +88,46 @@ public class Class {
 
         for (Student student: students) {
             if (student.grade < 5) {
-                System.out.println("Student's name: " + student.name + ", grade: " + student.grade);
+                System.out.println(student);
             }
         }
+    }
+
+    public void updateStudentCourse() {
+        // Find student by name, then update the student course with new course provided
+
+        System.out.println("Please enter the name of the student to update: ");
+        String name = scanner.nextLine();
+
+        System.out.println("Please enter the course you want to change to: ");
+        String course = scanner.nextLine();
+
+        for (Student student: students) {
+            if (student.name.equals(name)) {
+                student.course = course;
+                System.out.println("Student course has been updated.");
+                return;
+            }
+        }
+        System.out.println("Student not found!");
+    }
+
+    public void updateStudentGrade() {
+
+        System.out.println("Please enter the name of the student to update: ");
+        String name = scanner.nextLine();
+
+        System.out.println("Please enter the grade you want to change to: ");
+        int grade = intScanner.nextInt();
+
+        for (Student student: students) {
+            if(student.name.equals(name)) {
+                student.grade = grade;
+                System.out.println("Students grade has been updated.");
+                return;
+            }
+        }
+        System.out.println("Student not found!");
     }
 
 }

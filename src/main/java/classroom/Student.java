@@ -12,6 +12,10 @@ public class Student {
         this.grade = grade;
         this.course = course;
 
+        }
+
+    public String toString() {
+        return "Name: " + name + ", Grade: " + grade + ", Course: " + course;
     }
 
 }

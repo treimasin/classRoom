@@ -22,6 +22,8 @@ public class Main {
                     4. Remove a student from the classroom
                     5. View students with grade greater than 5
                     6. View students with grade less than 5
+                    7. Update students course
+                    8. Update students grade
                     """);
 
             input = scanner.nextLine();
@@ -47,6 +49,12 @@ public class Main {
                     break;
                 case "6":
                     roomClass.findLessThan5();
+                    break;
+                case "7":
+                    roomClass.updateStudentCourse();
+                    break;
+                case "8":
+                    roomClass.updateStudentGrade();
                     break;
                 default:
                     System.out.println("Please enter a valid input.");
